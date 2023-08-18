@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductManagement.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.CategoryController.Get">
+            <summary>
+            Get all categories
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.CategoryController.Post(ProductManagement.Application.Features.Categories.Commands.CreateCategory.CreateCategoryCommand)">
+            <summary>
+            Create a new category
+            </summary>
+            <param name="categoryCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.CategoryController.Get(System.Int32)">
+            <summary>
+            Get a category by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.CategoryController.Put(System.Int32,ProductManagement.Application.Features.Categories.Commands.UpdateCategory.UpdateCategoryCommand)">
+            <summary>
+            Update a category
+            </summary>
+            <param name="id"></param>
+            <param name="categoryCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.CategoryController.Delete(System.Int32)">
+            <summary>
+            Delete a category
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.ProductController.CreateProduct(ProductManagement.Application.Features.Products.Commands.CreateProduct.CreateProductCommand)">
+            <summary>
+            Create a new product
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.ProductController.UpdateProduct(System.Int32,ProductManagement.Application.Features.Products.Commands.UpdateProduct.UpdateProductCommand)">
+            <summary>
+            Update a product
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductManagement.WebApi.Controllers.v1.ProductController.Delete(System.Int32)">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
