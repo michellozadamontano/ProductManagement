@@ -51,4 +51,12 @@ public class CategoryRepository : GenericRepositoryAsync<Category>, ICategoryRep
             .Include(c => c.Children)
             .FirstOrDefaultAsync(c => c.Id == id);
     }
+
+    public async Task<IEnumerable<Category>> GetAllSubCategoriesAsync(int parentId)
+    {
+        return await _dbContext.Categories
+            .Include(c => c.Children)
+            .Where(c => c.ParentId == parentId)
+            .ToListAsync();
+    }
 }

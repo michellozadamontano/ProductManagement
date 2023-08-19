@@ -22,6 +22,13 @@ public sealed class DeleteCategoryCommandHandler: IRequestHandler<DeleteCategory
         {
             throw new NotFoundException("Category with ", request.Id);
         }
+        // first delete all sub categories
+        var subCategories = await _categoryRepository.GetAllSubCategoriesAsync(request.Id);
+        foreach (var subCategory in subCategories)
+        {
+            await _categoryRepository.DeleteAsync(subCategory);
+        }
+
         await _categoryRepository.DeleteAsync(category);
             
         return Unit.Value;
