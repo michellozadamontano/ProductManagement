@@ -11,6 +11,7 @@ using ProductManagement.Application.Features.Products.Queries.GetProductById;
 namespace ProductManagement.WebApi.Controllers.v1;
 
 [ApiVersion("1.0")]
+[Authorize]
 public class ProductController : BaseApiController
 {
     [HttpGet]
@@ -32,8 +33,7 @@ public class ProductController : BaseApiController
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
-    [HttpPost("create")]
-    [Authorize]
+    [HttpPost("create")]    
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateProduct(CreateProductCommand command)
@@ -48,8 +48,7 @@ public class ProductController : BaseApiController
     /// <param name="command"></param>
     /// <returns></returns>
     [HttpPut]
-    [Route("update/{id:int}")]
-    [Authorize]
+    [Route("update/{id:int}")]   
     public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductCommand command)
     {
         if (id != command.Id)
@@ -64,8 +63,7 @@ public class ProductController : BaseApiController
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [HttpDelete("{id:int}")]
-    [Authorize]
+    [HttpDelete("{id:int}")]    
     public async Task<IActionResult> Delete(int id)
     {
         return Ok(await Mediator.Send(new DeleteProductCommand(id)));

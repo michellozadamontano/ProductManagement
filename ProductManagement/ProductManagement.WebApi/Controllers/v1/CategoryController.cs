@@ -11,6 +11,7 @@ using ProductManagement.WebApi.Extensions;
 namespace ProductManagement.WebApi.Controllers.v1;
 
 [ApiVersion("1.0")]
+[Authorize]
 public class CategoryController : BaseApiController
 {
     /// <summary>
@@ -29,8 +30,7 @@ public class CategoryController : BaseApiController
     /// <param name="categoryCommand"></param>
     /// <returns></returns>
     [HttpPost]
-    //[Authorize(Policy = AuthorizationConsts.AdminPolicy)]
-    [Authorize]
+    //[Authorize(Policy = AuthorizationConsts.AdminPolicy)]    
     public async Task<IActionResult> Post([FromBody] CreateCategoryCommand categoryCommand)
     {
         return Ok(await Mediator.Send(categoryCommand));
@@ -53,8 +53,7 @@ public class CategoryController : BaseApiController
     /// <param name="id"></param>
     /// <param name="categoryCommand"></param>
     /// <returns></returns>
-    [HttpPut("{id:int}")]
-    [Authorize]
+    [HttpPut("{id:int}")]    
     public async Task<IActionResult> Put(int id, [FromBody] UpdateCategoryCommand categoryCommand)
     {
         if (id != categoryCommand.Id)
@@ -69,8 +68,7 @@ public class CategoryController : BaseApiController
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [HttpDelete("{id:int}")]
-    [Authorize]
+    [HttpDelete("{id:int}")]    
     public async Task<IActionResult> Delete(int id)
     {
         var deleteCategoryCommand = new DeleteCategoryCommand(id);
